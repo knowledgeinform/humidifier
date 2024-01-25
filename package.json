@@ -1,0 +1,64 @@
+{
+  "name": "humidifier",
+  "version": "0.0.0",
+  "author": "Jonathan Jones",
+  "bin": {
+    "humidifier": "./bin/run"
+  },
+  "bugs": "https://github.com/humidifier/humidifier/issues",
+  "dependencies": {
+    "@oclif/command": "^1",
+    "@oclif/config": "^1",
+    "@oclif/plugin-help": "^3",
+    "@serialport/parser-inter-byte-timeout": "^8.0.6",
+    "@serialport/parser-readline": "^8.0.6",
+    "chai-http": "^4.3.0",
+    "eslint": "^7.10.0",
+    "eslint-config-oclif": "^3.1.0",
+    "express": "^4.17.1",
+    "influx": "^5.6.3",
+    "isodate": "^0.1.4",
+    "modbus-serial": "^8.0.11",
+    "mongodb": "3.5",
+    "rpio": "^2.2.0",
+    "serialport": "^8.0.8",
+    "superagent": "^8.0.9",
+    "telnet-client": "^2.0.8"
+  },
+  "devDependencies": {
+    "@oclif/dev-cli": "^1",
+    "@oclif/test": "^1",
+    "chai": "^4",
+    "globby": "^10",
+    "nyc": "^14"
+  },
+  "engines": {
+    "node": ">=9.9.0"
+  },
+  "files": [
+    "/bin",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json",
+    "/src"
+  ],
+  "homepage": "https://github.com/humidifier/humidifier",
+  "keywords": [
+    "oclif"
+  ],
+  "license": "UNLICENSED",
+  "main": "src/index.js",
+  "oclif": {
+    "commands": "./src/commands",
+    "bin": "humidifier",
+    "plugins": [
+      "@oclif/plugin-help"
+    ]
+  },
+  "repository": "humidifier/humidifier",
+  "scripts": {
+    "postpack": "rm -f oclif.manifest.json",
+    "prepack": "oclif-dev manifest && oclif-dev readme",
+    "test": "nyc mocha --forbid-only \"test/**/*.test.js\"",
+    "version": "oclif-dev readme && git add README.md"
+  }
+}
